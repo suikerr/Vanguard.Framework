@@ -17,6 +17,7 @@
     using Microsoft.Extensions.Logging;
     using Vanguard.Framework.Http.Filters;
     using Vanguard.Framework.Http.Formatters;
+    using Swashbuckle.AspNetCore.Swagger;
 
     public class Startup
     {
@@ -54,6 +55,11 @@
                     options.OutputFormatters.Add(new SelectFieldJsonOutputFormatter(JsonSerializerSettingsProvider.CreateSerializerSettings(), ArrayPool<char>.Shared));
                 });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
             services.AddDbContext<ExampleContext>(options => options.UseInMemoryDatabase("Test"));
 
             // Add Autofac
@@ -70,7 +76,13 @@
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseDeveloperExceptionPage();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseDeveloperExceptionPage();
         }
     }

@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("Vanguard Framework")]
 [assembly: AssemblyCopyright("Copyright © Veire Solutions 2017")]
 [assembly: AssemblyCulture("")]
-[assembly: InternalsVisibleTo("VanguardWizard.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100a544e78e4cdc689cde28bcac2274d0df73ce3bcf882d3d72639191331ddac057d45ea1d80c97d9ca7d76b81d399fcd6219ca2d529d21d67a46a4b0aeb656d9b1be34eb12e83dca3d40df3bd40adb4a649b76167e2005af720acda2d886ec87939127034a3c545fad82f51804da384816bdf7536449f056a9d3991c049d1f6ee9")]
+[assembly: InternalsVisibleTo("VanguardWizard.Tests")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
